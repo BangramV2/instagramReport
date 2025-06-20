@@ -64,4 +64,4 @@ Easily select accounts and posts to report with just a few clicks. 🖱️
 - **Works on all devices** (Mobile/Desktop) 📱💻  
 - **No installation required** — just set up and go ⚡  
 
-Last updated: 2025-06-20 04:51 UTC
+Last updated: 2025-06-20 05:41 UTC
