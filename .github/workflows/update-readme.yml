@@ -13,10 +13,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Update timestamp
-        run: |
-          NOW=$(date -u '+%Y-%m-%d %H:%M UTC')
-          sed -i "s/^Last updated:.*/Last updated: $NOW/" README.md
+
+
 
       - name: Commit and push changes
         env:
