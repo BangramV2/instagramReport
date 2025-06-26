@@ -13,16 +13,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Update timestamp
+        run: |
+          NOW=$(date -u '+%Y-%m-%d %H:%M UTC')
+          sed -i "s/^Last updated:.*/Last updated: $NOW/" README.md
 
-
-
-      - name: Commit and push changes
+      - name: Commit and Push
         env:
-          TOKEN: ${{ secrets.PAT_TOKEN }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config --global user.name "BangGram"
-          git config --global user.email "you@example.com"
-          git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+          git config --global user.email "your-email@example.com"
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository }}
           git add README.md
           git commit -m "chore: update README timestamp" || echo "No changes to commit"
-          git push origin main
+          git push origin HEAD
